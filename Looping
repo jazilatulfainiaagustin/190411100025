@@ -1,0 +1,29 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel
+
+#membuat fungsi utk menentukan layout window
+def perulangan_go():
+   #inisialisasi pyqt
+   app = QApplication(sys.argv)
+   perulangan = QWidget()
+
+   #menyiapkan label, menempelkan label ke window
+   #settext, dan posisi
+   textLabel = QLabel(perulangan)
+   label = [None]*16
+   baris = 10
+   for j in range(1,11):
+      baris = baris + 16
+      label[j] = QLabel(perulangan)
+      label[j].setText("Hello World!" + str(j))
+      label[j].move(125,baris)
+
+   #menentukan ukuran window, + title dan menampilkan
+   perulangan.setGeometry(50,50,320,200)
+   perulangan.setWindowTitle("PyQt5 Example")
+   perulangan.show()
+   sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+   perulangan_go()
